@@ -47,6 +47,14 @@ const TaskController = {
       console.error(error)
       res.status(500).send("Ha habido un error actualizando la tarea")
     }
+  },
+  async delete (req,res){
+    try {
+      const task = await Task.findByIdAndDelete(req.params._id, req.body, {new: true})
+      res.send({msg:"Tarea borrada con exito", task})
+    } catch (error) {
+      res.status(500).send("Ha habido un error borrando la tarea")
+    }
   }
 }
 
