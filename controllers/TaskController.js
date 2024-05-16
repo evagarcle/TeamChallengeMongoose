@@ -38,6 +38,15 @@ const TaskController = {
       console.error(error)
       res.status(500).send("Ha habido un error encontrando la tarea por título")
     }
+  },
+  async update(req,res) {
+    try {
+      const task = await Task.findByIdAndUpdate(req.params._id, req.body, {new:true})
+      res.send({msg: "Tarea actualizada con éxito", task})
+    } catch (error) {
+      console.error(error)
+      res.status(500).send("Ha habido un error actualizando la tarea")
+    }
   }
 }
 
