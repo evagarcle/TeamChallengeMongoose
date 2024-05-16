@@ -12,3 +12,6 @@ dbConnection()
 app.use("/tasks", require("./routes/tasks"))
 
 app.listen(PORT, ()=> console.log(`Servidor levantado en el puerto ${PORT}`))
+
+
+module.exports = app
